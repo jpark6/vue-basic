@@ -8,16 +8,24 @@
 </head>
 <body>
   <div id="app">
-    <p>{{ num }}</p>
+    <p v-bind:id="uuid" v-bind:class="name">{{ num }}</p>
     <p>{{ doubleNum }}</p>
+    <div v-if="isLoading">Loading...</div>
+    <div v-else>test user has been logged in</div>
+    <div v-show="isLoading">difference</div>
+    <input type="text" v-model="inputText" />
+    <p>{{ inputText }}</p>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
     new Vue({
       el: '#app',
       data: {
-        str: 'hi',
+        uuid: 'abc1234',
         num: 10,
+        name: 'text-blue',
+        isLoading: true,
+        inputText : '',
       },
       computed: {
         doubleNum: function() {
