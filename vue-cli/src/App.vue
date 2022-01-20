@@ -1,6 +1,6 @@
 <template>
   <div>
-    <app-header v-bind:propsdata="headerStr" />
+    <app-header v-bind:propsdata="headerStr" v-on:renew="renewStr" />
     {{ str }}
   </div>
 </template>
@@ -15,6 +15,11 @@ export default {
   }),
   components: {
     AppHeader,
+  },
+  methods: {
+    renewStr: function () {
+      this.headerStr = this.headerStr === "Header" ? "Hi!!!" : "Header";
+    },
   },
 };
 </script>
